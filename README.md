@@ -1,6 +1,6 @@
 # hts-assoc-cli-tool
 
-A simple and hastily put together CLI tool that queries a mirror node for accounts with a 0 balance for a specific token ID. Results are saved to a CSV file in a format compatible with Calaxy's HTS distrubition tool.
+A simple and hastily put together CLI tool that queries a mirror node for accounts with an exact balance for a specific token ID. Results are saved to a CSV file in a format compatible with Calaxy's HTS distrubition tool.
 
 ## Usage
 
@@ -8,7 +8,9 @@ Download the executable for your machine (macOS, Windows, Linux) or build the to
 
 Pass the token ID using the ```-token``` flag (required).
 
-Enter the amount using the ```-amount``` flag (optional -- defaults to 0).
+Enter the amount to airdrop using the ```-amount``` flag (optional -- defaults to 0).
+
+Enter the exact balance of the token an account must have using the ```-balance``` flag (optional -- defaults to 0)
 
 Enter the output CSV filename using the ```-file``` flag (optional -- defaults to results.csv).
 

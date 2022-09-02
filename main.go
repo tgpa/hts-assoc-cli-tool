@@ -30,6 +30,7 @@ func main() {
 	// token, amount and file flags
 	tokenPtr := flag.String("token", "", "token id to query")
 	amountPtr := flag.Int64("amount", 0, "amount to set for airdrop")
+	balancePtr := flag.Int64("balance", 0, "the exact balance an account should have")
 	filePtr := flag.String("file", "results.csv", "filename to save results as")
 	flag.Parse()
 
@@ -48,7 +49,7 @@ func main() {
 
 	// query mirror node
 	url := "https://mainnet-public.mirrornode.hedera.com"
-	endpoint := fmt.Sprintf("/api/v1/tokens/%v/balances?account.balance=eq:0&limit=100", *tokenPtr)
+	endpoint := fmt.Sprintf("/api/v1/tokens/%v/balances?account.balance=eq:%v&limit=100", *tokenPtr, *balancePtr)
 
 	done := false
 	var balances []string
@@ -74,9 +75,7 @@ func main() {
 		}
 
 		for _, a := range response.Balances {
-			if a.Balance == 0 {
-				balances = append(balances, a.Account)
-			}
+			balances = append(balances, a.Account)
 		}
 
 		if len(response.Links.Next) == 0 {
@@ -104,5 +103,5 @@ func main() {
 		}
 	}
 
-	fmt.Printf("%v accounts with 0 balance\n", len(balances))
+	fmt.Printf("%v accounts with %v balance\n", len(balances), *balancePtr)
 }
