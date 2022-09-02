@@ -16,14 +16,14 @@ Enter the output CSV filename using the ```-file``` flag (optional -- defaults t
 
 ### macOS
 ```
-$ ./hts-assoc-cli-tool-macos -token=0.0.1 -amount=10 -file=results.csv
+$ ./hts-assoc-cli-tool-macos -token=0.0.1 -amount=10 -balance=1 -file=results.csv
 ```
 
 ### Windows
 ```
-$ ./hts-assoc-cli-tool-windows.exe -token=0.0.1 -amount=10 -file=results.csv
+$ ./hts-assoc-cli-tool-windows.exe -token=0.0.1 -amount=10 -balance=1 -file=results.csv
 ```
 ### Linux
 ```
-$ ./hts-assoc-cli-tool-linux -token=0.0.1 -amount=10 -file=results.csv
+$ ./hts-assoc-cli-tool-linux -token=0.0.1 -amount=10 -balance=1 -file=results.csv
 ```
